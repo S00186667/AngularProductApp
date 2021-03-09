@@ -4,6 +4,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpClientModule } from '@angular/common/http';
 
+import {AngularFireModule} from '@angular/fire'; 
+
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductRowComponent } from './product-row/product-row.component';
@@ -38,6 +40,7 @@ import { ProductItemComponent } from './product-item/product-item.component';
     CartComponent,
     CartItemComponent,
     ProductItemComponent,
+   
     
   ],
   imports: [
@@ -45,7 +48,15 @@ import { ProductItemComponent } from './product-item/product-item.component';
     HttpClientModule, 
     AppRoutingModule, 
     ReactiveFormsModule, 
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyD1CrU6cbBauKqsczBS_ZasWnVm049Ewds",
+      authDomain: "osdproject-c75bf.firebaseapp.com",
+      projectId: "osdproject-c75bf",
+      storageBucket: "osdproject-c75bf.appspot.com",
+      messagingSenderId: "395094359455",
+      appId: "1:395094359455:web:941110c085e653721e51aa"
+    })
 
   
   ],
