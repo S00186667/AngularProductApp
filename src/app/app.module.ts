@@ -22,6 +22,8 @@ import { FiltersComponent } from './componets/shopping-list/filters/filters.comp
 import { CartComponent } from './componets/shopping-list/cart/cart.component';
 import { CartItemComponent } from './componets/shopping-list/cart-item/cart-item.component';
 import { ProductItemComponent } from './product-item/product-item.component';
+import { HomeComponent } from './home/home.component';
+import { FirebaseService } from './services/firebase.service';
 
 
 
@@ -40,6 +42,7 @@ import { ProductItemComponent } from './product-item/product-item.component';
     CartComponent,
     CartItemComponent,
     ProductItemComponent,
+    HomeComponent,
    
     
   ],
@@ -60,7 +63,7 @@ import { ProductItemComponent } from './product-item/product-item.component';
 
   
   ],
-  providers: [],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
