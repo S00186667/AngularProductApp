@@ -1,0 +1,28 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "HELLO",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "cart": [],
+  "wishlist": [
+    {
+      "id": "S12"
+    },
+    {
+      "id": "S13"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

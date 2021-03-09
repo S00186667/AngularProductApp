@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {IProduct} from 'model/product'; 
 //import { runInThisContext } from 'vm';
 import {ProductService} from '../product.service'; 
+import { WishlistService } from '../wishlist.service';
 
 @Component({
   selector: 'app-product-list',
@@ -12,21 +13,42 @@ import {ProductService} from '../product.service';
 export class ProductListComponent implements OnInit {
 
   productList:IProduct[]; 
+
   message:string;
+  
   showProductForm: boolean = false; 
 
 
   currentProduct :IProduct; 
 
-  constructor(private productService: ProductService) { }
+  wishList: any[] = []
+
+  constructor(
+    private productService: ProductService,
+    private wishlistService: WishlistService) { }
 
   ngOnInit(): void {
+    this.loadProducts(); 
+    this.loadWishlist(); 
+ 
+  }
+
+  loadProducts(){
 
     this.productService.getProducts().subscribe({
       next:(value: IProduct[])=> this.productList = value, 
       complete: () => console.log('product service finished'), 
       error:(mess) => this.message = mess
     })
+
+  }
+
+  loadWishlist(){
+    this.wishlistService.getWishList().subscribe(productIds => {
+      this.wishList = productIds
+      console.log(productIds)
+    })
+      
   }
 
   clicked(product: IProduct):void{

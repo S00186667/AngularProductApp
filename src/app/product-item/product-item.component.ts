@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import {IProduct} from 'model/product'; 
+
+import {MessengerService} from 'src/app/messenger.service'; 
+import { WishlistService } from '../wishlist.service';
 
 @Component({
   selector: 'app-product-item',
@@ -7,9 +12,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductItemComponent implements OnInit {
 
-  constructor() { }
+  @Input() productItem: IProduct
+
+  @Input() addedToWishList: boolean; 
+
+  
+  constructor(private msg: MessengerService,
+    private wishlistService: WishlistService) { }
 
   ngOnInit(): void {
+  }
+
+
+  handleAddToCart(){
+    this.msg.sendMsg(this.productItem)
+  }
+
+
+  handleAddToWishList(){
+
+    this.wishlistService.addToWishList(this.productItem.isbn).subscribe(()=>{
+      this.addedToWishList = true; 
+
+    })
+
+  }
+
+  handleRemoveFromWishList(){
+
+    this.wishlistService.removeFromWishlist(this.productItem.isbn).subscribe(()=> {
+      this.addedToWishList = false; 
+    })
+
   }
 
 }

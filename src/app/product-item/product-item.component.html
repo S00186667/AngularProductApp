@@ -3,15 +3,20 @@
 
     <div class="card-body">
         <p class="card-text">
-            <strong>{{35.00 | currency}}</strong>
+            <strong>{{productItem.price | currency}}</strong>
+            <i *ngIf="addedToWishList" class="fas fa-heart float-right" (click)="handleRemoveFromWishList()"></i>
+
+            <i *ngIf="!addedToWishList" class="far fa-heart float-right" (click)="handleAddToWishList()"></i>
         </p>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text">{{productItem.category}}</p>
       <div class="d-flex justify-content-between align-items-center">
         <div class="btn-group">
-          <button type="button" class="btn btn-sm btn-primary product-btn">Add To WishList</button>
+          <button 
+          type="button" 
+          class="btn btn-sm btn-primary product-btn"
+          (click) = "handleAddToCart()">Add To WishList</button>
           <button type="button" class="btn btn-sm btn-outline-secondary product-btn">View Details</button>
         </div>
-        
       </div>
     </div>
   </div>

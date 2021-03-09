@@ -9,7 +9,7 @@ import { catchError, map, tap } from 'rxjs/operators'
 })
 export class ProductService {
 
-  private dataUri ='http://localhost:3000/Beauty'
+  private dataUri ='http://localhost:5000/Beauty'
 
   constructor(private http: HttpClient) { }
 
@@ -22,9 +22,7 @@ export class ProductService {
         catchError(this.handleError
           )
       )
-
   }
-
 
   addProduct(product: IProduct): Observable<IProduct>{
     return this.http.post<IProduct>(this.dataUri, product)
