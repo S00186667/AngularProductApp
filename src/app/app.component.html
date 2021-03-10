@@ -9,7 +9,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-           <app-shopping-list></app-shopping-list> 
+            <router-outlet></router-outlet>
         </div>
     </div>
 
@@ -22,7 +22,10 @@
 
 
 
-<div *ngIf="!isSignedIn">
+
+
+
+<!--<div *ngIf="!isSignedIn">
     <h2>Sign up</h2>
     <input type="text" #emailSignup/>
     <input type="text" #passwordSignup/>
@@ -35,5 +38,5 @@
     <input type="text" #password/>
     <button (click)="onSignin(email.value, password.value)">Sign In</button>
 </div>
-<app-home *ngIf = "isSignedIn" (isLogout)="handleLogout()"></app-home>
+<app-home *ngIf = "isSignedIn" (isLogout)="handleLogout()"></app-home>-->
 

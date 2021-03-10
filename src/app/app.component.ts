@@ -6,11 +6,13 @@ import { FirebaseService } from './services/firebase.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-//////
+
 export class AppComponent implements OnInit{
   title = 'RedoProduct-Application';
 
-  isSignedIn =false
+  ngOnInit(){}
+
+ /* isSignedIn =false
   constructor(public FirebaseService: FirebaseService){}
 
   ngOnInit(){
@@ -40,5 +42,5 @@ export class AppComponent implements OnInit{
 
     this.isSignedIn = false
 
-  }
+  }*/
 }

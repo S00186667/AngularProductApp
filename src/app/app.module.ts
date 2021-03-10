@@ -24,7 +24,10 @@ import { CartItemComponent } from './componets/shopping-list/cart-item/cart-item
 import { ProductItemComponent } from './product-item/product-item.component';
 import { HomeComponent } from './home/home.component';
 import { FirebaseService } from './services/firebase.service';
-
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+ import {RouterModule} from '@angular/router';
+import { PageNotFoundComponent } from './componets/shared/page-not-found/page-not-found.component'; 
 
 
 @NgModule({
@@ -43,6 +46,9 @@ import { FirebaseService } from './services/firebase.service';
     CartItemComponent,
     ProductItemComponent,
     HomeComponent,
+    LoginComponent,
+    RegisterComponent,
+    PageNotFoundComponent,
    
     
   ],
