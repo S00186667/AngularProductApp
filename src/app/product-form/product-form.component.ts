@@ -38,7 +38,7 @@ export class ProductFormComponent implements OnInit {
 
     console.table(this.product); 
     if(this.product == null){
-      this.product={name:'', isbn: '', category: '', price: '', brand: '', id: ''};
+      this.product={name:'', isbn: '', category: '', price: '', brand: '', id: '', imageURL: ''};
       this.isNewProductForm = true; 
     }
 

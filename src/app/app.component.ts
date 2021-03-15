@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FirebaseService } from './services/firebase.service';
-
+import {YoutubeService} from 'src/app/youtube.service'; 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,7 +10,35 @@ import { FirebaseService } from './services/firebase.service';
 export class AppComponent implements OnInit{
   title = 'RedoProduct-Application';
 
-  ngOnInit(){}
+  channels:any
+
+  //this is the user input to search the channels of the youtube api
+  @ViewChild('channelName') channelName: ElementRef; 
+
+  constructor(private youtube: YoutubeService){}
+
+  ngOnInit(){
+    this.youtube.getChannels("programming").subscribe((data) => {
+      console.log(data)
+
+      this.channels = data.items
+    })
+  
+  }
+
+  getData(){
+    //get the value of the user 
+    var channelName = this.channelName.nativeElement.value 
+
+    this.youtube.getChannels(channelName).subscribe((data) => {
+      console.log(data)
+
+      this.channels = data.items
+    })
+
+  }
+
+ 
 
  /* isSignedIn =false
   constructor(public FirebaseService: FirebaseService){}
@@ -44,3 +72,4 @@ export class AppComponent implements OnInit{
 
   }*/
 }
+
