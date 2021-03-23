@@ -4,7 +4,7 @@ export interface IProduct{
     brand:string,
     price:string,
     isbn:string
-    id:string, 
+    _id:string, 
     imageURL:string
 
 }

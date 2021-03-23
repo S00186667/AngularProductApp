@@ -27,7 +27,10 @@ import { FirebaseService } from './services/firebase.service';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
  import {RouterModule} from '@angular/router';
-import { PageNotFoundComponent } from './componets/shared/page-not-found/page-not-found.component'; 
+import { PageNotFoundComponent } from './componets/shared/page-not-found/page-not-found.component';
+import { YoutubeComponent } from './youtube/youtube.component';
+import { ProductCrudComponent } from './product-crud/product-crud.component';
+import { UpdateProductComponent } from './update-product/update-product.component'; 
 
 
 @NgModule({
@@ -49,6 +52,9 @@ import { PageNotFoundComponent } from './componets/shared/page-not-found/page-no
     LoginComponent,
     RegisterComponent,
     PageNotFoundComponent,
+    YoutubeComponent,
+    ProductCrudComponent,
+    UpdateProductComponent,
    
     
   ],

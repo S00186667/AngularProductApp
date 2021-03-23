@@ -6,11 +6,17 @@ import { ShoppingListComponent } from './componets/shopping-list/shopping-list.c
 import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from  './components/register/register.component';
 import {PageNotFoundComponent} from './componets/shared/page-not-found/page-not-found.component'; 
+import { YoutubeComponent } from './youtube/youtube.component';
+import { ProductCrudComponent } from './product-crud/product-crud.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
 const routes: Routes =[
   {path: '', redirectTo: '/shop', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'shop', component: ShoppingListComponent}, 
+  {path: 'youtube', component: YoutubeComponent},
+  {path: 'crud', component: ProductCrudComponent},
+  {path: 'update/:id', component: UpdateProductComponent},
   {path: '**', component: PageNotFoundComponent}
 ]
 @NgModule({

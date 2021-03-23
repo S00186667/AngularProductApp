@@ -8,7 +8,13 @@ import {YoutubeService} from 'src/app/youtube.service';
 })
 
 export class AppComponent implements OnInit{
-  title = 'RedoProduct-Application';
+ 
+ ngOnInit(){
+
+ }
+ 
+  /*title = 'RedoProduct-Application';
+  
 
   channels:any
 
@@ -18,7 +24,7 @@ export class AppComponent implements OnInit{
   constructor(private youtube: YoutubeService){}
 
   ngOnInit(){
-    this.youtube.getChannels("programming").subscribe((data) => {
+    this.youtube.getChannels("makeup").subscribe((data) => {
       console.log(data)
 
       this.channels = data.items
@@ -34,9 +40,9 @@ export class AppComponent implements OnInit{
       console.log(data)
 
       this.channels = data.items
-    })
+    })*/
 
-  }
+}
 
  
 
@@ -71,5 +77,5 @@ export class AppComponent implements OnInit{
     this.isSignedIn = false
 
   }*/
-}
+
 

@@ -48,7 +48,7 @@ export class CartComponent implements OnInit {
     }else{
 
       for(let i in this.cartItems){
-        if(this.cartItems[i].id === product.id){
+        if(this.cartItems[i].id === product._id){
           this.cartItems[i].qty++
           break;
 

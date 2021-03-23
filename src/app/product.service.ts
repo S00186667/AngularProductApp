@@ -17,11 +17,15 @@ export class ProductService {
 
     console.log("get products called"); 
 
-    return this.http.get<IProduct[]>(`${this.dataUri}?limit=5`)
+    return this.http.get<IProduct[]>(`${this.dataUri}?limit=10`)
       .pipe(
         catchError(this.handleError
           )
       )
+  }
+
+  getProductById(id: string): Observable<any>{
+    return this.http.get(`${this.dataUri}/${id}`)
   }
 
   addProduct(product: IProduct): Observable<IProduct>{
@@ -39,6 +43,26 @@ export class ProductService {
       catchError(this.handleError)
     )
   }
+
+
+  deleteProduct(_id : string) : Observable<IProduct>{
+    let productURI: string = this.dataUri +'/' + (_id); 
+    return this.http.delete<IProduct>(productURI)
+    .pipe(
+      catchError(this.handleError)
+    )
+  
+  
+  
+   }
+
+
+ /* deleteProduct(id: string): Observable<any>{
+    return this.http.delete(`${this.dataUri}/${id}`, {responseType: 'text'});
+
+  }*/
+
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

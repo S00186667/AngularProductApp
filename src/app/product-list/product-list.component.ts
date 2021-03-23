@@ -74,9 +74,9 @@ export class ProductListComponent implements OnInit {
       this.addNewProduct(product); 
     }
     else{
-      console.log('need to update product wih id ' + this.currentProduct.id)
+      console.log('need to update product wih id ' + this.currentProduct._id)
 
-      this.updateProduct(this.currentProduct.id,product)
+      this.updateProduct(this.currentProduct._id,product)
     }
   }
 
@@ -111,7 +111,7 @@ export class ProductListComponent implements OnInit {
       return false; 
     }
     else{
-      return product.id === this.currentProduct.id; 
+      return product._id === this.currentProduct._id; 
     }
   }
 
