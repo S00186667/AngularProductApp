@@ -14,7 +14,7 @@ import {FormControl, FormGroup, Validators, FormBuilder} from '@angular/forms';
 export class UpdateProductComponent implements OnInit {
 
 
-  id:string
+  _id:string
   productList: IProduct;
   productForm: FormGroup;  
 
@@ -26,7 +26,7 @@ export class UpdateProductComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, 
     private productService: ProductService, private formBuilder: FormBuilder) { }
 
-  ngOnInit(): void {this.id = this.route.snapshot.params['id']; 
+  ngOnInit(): void {this._id = this.route.snapshot.params['id']; 
 
   /*this.productForm = new FormGroup({
     name: new FormControl(this.product.name, [Validators.required, Validators.minLength(3)]), 
@@ -45,7 +45,7 @@ export class UpdateProductComponent implements OnInit {
 
 
 
-this.productService.getProductById(this.id)
+this.productService.getProductById(this._id)
 .subscribe(data => {
   console.log(data)
   this.productList = data; 
@@ -55,7 +55,7 @@ this.productService.getProductById(this.id)
 }
 
   updateProduct(){
-    this.productService.updateProduct(this.id, this.productList)
+    this.productService.updateProduct(this._id, this.productList)
     .subscribe({
       next: product => this.message  ="product has been modified", 
       error: (err) => this.message = err

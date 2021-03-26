@@ -30,7 +30,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { PageNotFoundComponent } from './componets/shared/page-not-found/page-not-found.component';
 import { YoutubeComponent } from './youtube/youtube.component';
 import { ProductCrudComponent } from './product-crud/product-crud.component';
-import { UpdateProductComponent } from './update-product/update-product.component'; 
+import { UpdateProductComponent } from './update-product/update-product.component';
+import { NewProductFormComponent } from './new-product-form/new-product-form.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { NewproductlistComponent } from './newproductlist/newproductlist.component'; 
 
 
 @NgModule({
@@ -55,6 +58,9 @@ import { UpdateProductComponent } from './update-product/update-product.componen
     YoutubeComponent,
     ProductCrudComponent,
     UpdateProductComponent,
+    NewProductFormComponent,
+    WishlistComponent,
+    NewproductlistComponent,
    
     
   ],

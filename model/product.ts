@@ -3,8 +3,9 @@ export interface IProduct{
     category:string, 
     brand:string,
     price:string,
-    isbn:string
-    _id:string, 
+    isbn:string,
     imageURL:string
+    _id:string, 
+   
 
 }

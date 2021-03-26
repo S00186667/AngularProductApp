@@ -9,12 +9,16 @@ import {PageNotFoundComponent} from './componets/shared/page-not-found/page-not-
 import { YoutubeComponent } from './youtube/youtube.component';
 import { ProductCrudComponent } from './product-crud/product-crud.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { ProductFormComponent } from './product-form/product-form.component';
 const routes: Routes =[
   {path: '', redirectTo: '/shop', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'shop', component: ShoppingListComponent}, 
   {path: 'youtube', component: YoutubeComponent},
+  {path: 'wishlist', component: WishlistComponent},
+  {path: 'form', component: ProductFormComponent},
   {path: 'crud', component: ProductCrudComponent},
   {path: 'update/:id', component: UpdateProductComponent},
   {path: '**', component: PageNotFoundComponent}

@@ -22,9 +22,7 @@
                     <th>
                         id
                     </th>
-                    <th>
-                        new id
-                    </th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -36,9 +34,8 @@
                     <td>{{product.brand}}</td>
                     <td>{{product.price}}</td>
                     <td>{{product.isbn}}</td>
-                    <td>{{product._id}}</td>
                     <td><button (click)="deleteProduct(product._id, product)" class="btn btn-danger">Delete</button>
-                       <button (click)="updateProduct(product.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+                       <button (click)="updateProduct(product._id, product)" class="btn btn-info" style="margin-left: 10px">Update</button>
                         <button (click)="detailproduct(product.id)" class="btn btn-info" style="margin-left: 10px">Details</button> 
                     </td>
                 </tr>
@@ -46,3 +43,5 @@
         </table>
     </div>
 </div>
+
+

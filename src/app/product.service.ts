@@ -38,6 +38,7 @@ export class ProductService {
   updateProduct(id:string, product: IProduct): Observable<IProduct>{
     console.log('subscrbing to update' + id); 
     let productURI: string = this.dataUri + '/' + id; 
+    console.log(productURI); 
     return this.http.put<IProduct>(productURI, product)
     .pipe(
       catchError(this.handleError)

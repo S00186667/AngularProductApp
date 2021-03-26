@@ -38,3 +38,67 @@
 </form>-->
 
 
+
+
+<p>book-form works!</p>
+
+{{message}}
+
+<button type="button" class="close" aria-label="Close" (click)="closeForm()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+<form [formGroup]="productForm" (ngSubmit) = "onSubmit()"  >
+<div class="form-group" >
+    <label for="name"> Name</label>
+    <input id="name" type="text" formControlName="name" class="form-control">
+</div>
+
+<div class="form-group">
+    <label for="category"> Category</label>
+    <input id="category" type="text" formControlName="category" class="form-control">
+</div>
+
+<div class="form-group" >
+    <label for="brand"> Brand</label>
+    <input id="brand" type="text" formControlName="brand" class="form-control">
+</div>
+
+<div class="form-group">
+    <label for="price">Price</label>
+    <input id="price" type="text" formControlName="price" class="form-control">
+</div>
+
+<div class="form-group" >
+    <label for="isbn"> ISBN</label>
+    <input id="isbn" type="text" formControlName="isbn" class="form-control">
+</div>
+
+<div class="form-group" >
+    <label for="imageURL"> ImageURl</label>
+    <input id="imageURL" type="text" formControlName="imageURL" class="form-control">
+</div>
+
+<button type="submit" [disabled]="!productForm.valid" class="btn btn-lg btn-primary">Submit</button>
+
+
+
+<div *ngIf="name.invalid && name.touched" class="alert alert-danger" >
+    Title is required and must be at least 4 characters
+</div>
+<div *ngIf="isbn.invalid && isbn.touched" class="alert alert-danger" >
+    ISBN is required
+</div>
+<div *ngIf="category.invalid && category.touched" class="alert alert-danger" >
+    Summary is required
+</div>
+
+</form>
+
+
+
+
+
+
+
+
