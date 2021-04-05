@@ -1,6 +1,15 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FirebaseService } from './services/firebase.service';
 import {YoutubeService} from 'src/app/youtube.service'; 
+import { Route } from '@angular/compiler/src/core';
+import { NavigationEnd, Router } from '@angular/router';
+import {filter} from 'rxjs/operators'; 
+
+
+//turns this into an any
+declare var gtag; 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,6 +17,22 @@ import {YoutubeService} from 'src/app/youtube.service';
 })
 
 export class AppComponent implements OnInit{
+
+  constructor(router: Router){
+    //observable
+    const navEndEvents = router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+    );
+
+    navEndEvents.subscribe((event: NavigationEnd) => {
+
+      //google tag configuration
+      
+      gtag('config', 'UA-193817959-1', {
+        'page_path': event.urlAfterRedirects
+      });
+    }); 
+  }
  
  ngOnInit(){
 
