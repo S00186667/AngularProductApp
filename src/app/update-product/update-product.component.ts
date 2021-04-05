@@ -5,6 +5,7 @@ import { IProduct } from 'model/product';
 import { ProductCrudComponent } from '../product-crud/product-crud.component';
 import { ProductService } from '../product.service';
 import {FormControl, FormGroup, Validators, FormBuilder} from '@angular/forms'; 
+import { isPromise } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-update-product',
@@ -15,8 +16,8 @@ export class UpdateProductComponent implements OnInit {
 
 
   _id:string
-  productList: IProduct;
-  productForm: FormGroup;  
+  Product: IProduct = <IProduct>{};
+  productForm: FormGroup; 
 
   message:string;
   @Input() product : IProduct; 
@@ -48,14 +49,14 @@ export class UpdateProductComponent implements OnInit {
 this.productService.getProductById(this._id)
 .subscribe(data => {
   console.log(data)
-  this.productList = data; 
+  this.Product = data; 
   error => console.log(error); 
 })
 
 }
 
   updateProduct(){
-    this.productService.updateProduct(this._id, this.productList)
+    this.productService.updateProduct(this._id, this.Product)
     .subscribe({
       next: product => this.message  ="product has been modified", 
       error: (err) => this.message = err
@@ -64,7 +65,19 @@ this.productService.getProductById(this._id)
 
 
   onSubmit(){
-    this.updateProduct(); 
+    //this.updateProduct(); 
+
+    this.productService.updateProduct(this._id, this.Product)
+    .subscribe(data => {
+      this.goToProductList(); 
+      
+    } 
+    , error => console.log(error));
+  }
+
+
+  goToProductList(){
+    this.router.navigate(['/crud']); 
   }
 
 

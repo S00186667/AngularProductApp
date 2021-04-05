@@ -24,8 +24,8 @@ export class ProductService {
       )
   }
 
-  getProductById(id: string): Observable<any>{
-    return this.http.get(`${this.dataUri}/${id}`)
+  getProductById(_id: string): Observable<IProduct>{
+    return this.http.get<IProduct>(`${this.dataUri}/${_id}`)
   }
 
   addProduct(product: IProduct): Observable<IProduct>{
@@ -35,14 +35,14 @@ export class ProductService {
     )
   }
 
-  updateProduct(id:string, product: IProduct): Observable<IProduct>{
-    console.log('subscrbing to update' + id); 
-    let productURI: string = this.dataUri + '/' + id; 
-    console.log(productURI); 
-    return this.http.put<IProduct>(productURI, product)
-    .pipe(
-      catchError(this.handleError)
-    )
+  updateProduct(_id:string, product: IProduct): Observable<IProduct>{
+   // console.log('subscrbing to update' + id); 
+  //  let productURI: string = this.dataUri + '/' + id; 
+  //  console.log(productURI); 
+    return this.http.put<IProduct>(`${this.dataUri}/${_id}`, product)
+   //// .pipe(
+    //  catchError(this.handleError)
+  //  )
   }
 
 
