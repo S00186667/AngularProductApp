@@ -1,4 +1,4 @@
-<div *ngIf ="cartItems.length === 0" class="alert alert-info">Wish List is empty!</div>
+<!--<div *ngIf ="cartItems.length === 0" class="alert alert-info">Wish List is empty!</div>
 
 <ul *ngIf ="cartItems.length > 0" class = "list-group">
 <li class="list-group-item" *ngFor = "let item of cartItems">
@@ -7,4 +7,18 @@
 
 <li class="list-group-item active">
 <strong>Total</strong>: {{cartTotal | currency}}
-</li>
+</li>-->
+
+
+<div class="right"  >
+
+    <h3>Wishlist</h3>
+    <ul>
+        <li *ngFor ="let w of wishlists | async">
+        <a>{{ w.name }}</a>
+        <a>{{ w.Price }}</a>
+    </li>
+    </ul>
+
+
+</div>

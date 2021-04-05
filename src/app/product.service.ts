@@ -17,7 +17,7 @@ export class ProductService {
 
     console.log("get products called"); 
 
-    return this.http.get<IProduct[]>(`${this.dataUri}?limit=10`)
+    return this.http.get<IProduct[]>(`${this.dataUri}?limit=20`)
       .pipe(
         catchError(this.handleError
           )

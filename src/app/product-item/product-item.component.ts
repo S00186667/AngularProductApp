@@ -1,9 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Store } from '@ngrx/store';
 
 import {IProduct} from 'model/product'; 
 
 import {MessengerService} from 'src/app/messenger.service'; 
+import { AppState } from '../app.state';
 import { WishlistService } from '../wishlist.service';
+
+
+import * as WishlistActions from 'src/app/actions/wishlist.actions'
 
 @Component({
   selector: 'app-product-item',
@@ -16,20 +21,36 @@ export class ProductItemComponent implements OnInit {
 
   @Input() addedToWishList: boolean; 
 
+
+  clearmsgs = ""; 
+
   
   constructor(private msg: MessengerService,
-    private wishlistService: WishlistService) { }
+    private wishlistService: WishlistService, private store: Store<AppState> ) { }
 
   ngOnInit(): void {
   }
 
 
-  handleAddToCart(){
-    this.msg.sendMsg(this.productItem)
+  addWishlist(name,Price){
+    this.store.dispatch(new WishlistActions.AddWishlist({name: name, Price: Price}))
+    this.addedToWishList = true
+
   }
 
 
-  handleAddToWishList(){
+  handleAddToCart(){
+    this.msg.sendMsg(this.productItem)
+    this.addedToWishList = true
+  }
+
+  handleRemoveCart(){
+    this.msg.sendMsg(this.clearmsgs); 
+    this.addedToWishList = false; 
+  }
+
+ 
+  /*handleAddToWishList(){
 
     this.wishlistService.addToWishList(this.productItem.isbn).subscribe(()=>{
       this.addedToWishList = true; 
@@ -44,6 +65,6 @@ export class ProductItemComponent implements OnInit {
       this.addedToWishList = false; 
     })
 
-  }
+  }*/
 
 }

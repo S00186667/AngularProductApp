@@ -33,7 +33,17 @@ import { ProductCrudComponent } from './product-crud/product-crud.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { NewProductFormComponent } from './new-product-form/new-product-form.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
-import { NewproductlistComponent } from './newproductlist/newproductlist.component'; 
+import { NewproductlistComponent } from './newproductlist/newproductlist.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatIconModule } from "@angular/material/icon";
+
+
+import { StoreModule } from '@ngrx/store';
+import { wishlistreducer } from 'src/app/reducers/wishlist.reducer';
+
+import {environment} from 'src/environments/environment' 
+
 
 
 @NgModule({
@@ -61,6 +71,7 @@ import { NewproductlistComponent } from './newproductlist/newproductlist.compone
     NewProductFormComponent,
     WishlistComponent,
     NewproductlistComponent,
+
    
     
   ],
@@ -69,17 +80,9 @@ import { NewproductlistComponent } from './newproductlist/newproductlist.compone
     HttpClientModule, 
     AppRoutingModule, 
     ReactiveFormsModule, 
+    StoreModule.forRoot({WishList: wishlistreducer}),
     FormsModule,
-    AngularFireModule.initializeApp({
-      apiKey: "AIzaSyD1CrU6cbBauKqsczBS_ZasWnVm049Ewds",
-      authDomain: "osdproject-c75bf.firebaseapp.com",
-      projectId: "osdproject-c75bf",
-      storageBucket: "osdproject-c75bf.appspot.com",
-      messagingSenderId: "395094359455",
-      appId: "1:395094359455:web:941110c085e653721e51aa"
-    })
-
-  
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [FirebaseService],
   bootstrap: [AppComponent]

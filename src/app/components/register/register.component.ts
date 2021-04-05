@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { from } from 'rxjs';
 
 import {FirebaseService} from 'src/app/services/firebase.service'
+
+import{AngularFireAuth} from '@angular/fire/auth'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +14,7 @@ import {FirebaseService} from 'src/app/services/firebase.service'
 export class RegisterComponent implements OnInit {
 
   isSignedIn =false
-  constructor(public FirebaseService: FirebaseService){}
+  constructor(public FirebaseService: FirebaseService, private router: Router){}
 
   ngOnInit(): void {
 
@@ -26,6 +30,9 @@ export class RegisterComponent implements OnInit {
     if (this.FirebaseService.isLoggedIn)
      this.isSignedIn = true
 
+     this.router.navigate([''])
+
   }
+
 
 }

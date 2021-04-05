@@ -4,9 +4,9 @@
     <div class="card-body">
         <p class="card-text">
             <strong>{{productItem.price | currency}}</strong>
-            <i *ngIf="addedToWishList" class="fas fa-heart float-right" (click)="handleRemoveFromWishList()"></i>
+            <i *ngIf="addedToWishList" class="fas fa-heart float-right" (click)="handleRemoveCart()"></i>
 
-            <i *ngIf="!addedToWishList" class="far fa-heart float-right" (click)="handleAddToWishList()"></i>
+            <i *ngIf="!addedToWishList" class="far fa-heart float-right" (click)="addWishlist(productItem.name, productItem.price)"></i>
         </p>
       <p class="card-text">{{productItem.category}}</p>
       <div class="d-flex justify-content-between align-items-center">

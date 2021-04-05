@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "osdproject-c75bf": {
+      "hosting": {
+        "RedoProduct-Application": [
+          "osdproject-c75bf"
+        ]
+      }
+    }
+  }
+}

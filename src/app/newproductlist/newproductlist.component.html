@@ -5,8 +5,6 @@
     <button (click)="openAddProduct()" *ngIf="!showProductForm"
     class="btn btn-lg btn-outline-primary" >Add Product</button>
     
-    <button (click)="openEditProduct()" *ngIf="!showProductForm" [disabled]="!currentProduct"
-    class="btn btn-lg btn-outline-primary" >Edit Product</button>
     
     <app-product-form *ngIf="showProductForm" 
     (productFormClose)="productFormClose($event)" [book]="currentProduct"></app-product-form>  

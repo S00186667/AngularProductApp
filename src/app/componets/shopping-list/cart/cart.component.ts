@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { wishlist } from 'model/wishlist.model';
+import { AppState } from 'src/app/app.state';
 
+import * as WishlistActions from 'src/app/actions/wishlist.actions'
 
-import {MessengerService} from 'src/app/messenger.service'
-
-
-import {IProduct} from 'model/product'
 
 @Component({
   selector: 'app-cart',
@@ -13,31 +14,41 @@ import {IProduct} from 'model/product'
 })
 export class CartComponent implements OnInit {
 
-  cartItems =[
-    // {id: 1, productID: 1, productName: 'Test1', qty: 4 ,price: 100, },
-    // {id: 2, productID: 3, productName: 'Test3',qty: 5, price: 100, },
-    // {id: 3, productID: 2, productName: 'Test4', qty: 3, price: 100, },
-    // {id: 4, productID: 4, productName: 'Test5', qty: 2, price: 100, },
-    
-  ]; 
+
+wishlists: Observable<wishlist[]>; 
+
+  cartItems =[]; 
 
   cartTotal =0; 
 
-  constructor(private msg: MessengerService) { }
+
+  //private msg: MessengerService,
+
+  constructor( private store: Store<AppState>) {
+
+    this.wishlists = store.select('WishList')
+
+
+   }
+
+   delWishlist(index){
+     this.store.dispatch(new WishlistActions.RemoveWishlist(index))
+   }
 
   ngOnInit(): void {
 
 
-    this.msg.getMsg().subscribe((product: IProduct) => {
+
+    //this.msg.getMsg().subscribe((product: IProduct) => {
      // console.log(product); 
 
-     this.addProductToCart(product)
+  //   this.addProductToCart(product)
    
-    })
+  //  })
     
   }
 
-  addProductToCart(product: IProduct){
+ /* addProductToCart(product: IProduct){
 
     if(this.cartItems.length === 0){
       this.cartItems.push({
@@ -68,7 +79,7 @@ export class CartComponent implements OnInit {
   
       })
     } 
-  }
+  }*/
 
 }
 
