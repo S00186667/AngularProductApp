@@ -14,6 +14,7 @@ import { ProductFormComponent } from './product-form/product-form.component';
 import { NewproductlistComponent } from './newproductlist/newproductlist.component';
 
 import {AngularFireAuthGuard, canActivate, redirectUnauthorizedTo} from '@angular/fire/auth-guard'
+import { AdminAreaComponent } from './admin-area/admin-area.component';
 
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']); 
@@ -29,6 +30,7 @@ const routes: Routes =[
   {path: 'youtube', component: YoutubeComponent},
   {path: 'form', component: NewproductlistComponent},
   {path: 'crud', component: ProductCrudComponent}, 
+  {path: 'admin', component: AdminAreaComponent}, 
   {path: 'update/:id', component: UpdateProductComponent},
   {path: '**', component: PageNotFoundComponent}
 ]

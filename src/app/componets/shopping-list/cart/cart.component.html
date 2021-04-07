@@ -10,15 +10,16 @@
 </li>-->
 
 
-<div class="right"  >
+<div class="right">
 
     <h3>Wishlist</h3>
-    <ul>
-        <li *ngFor ="let w of wishlists | async">
-        <a>{{ w.name }}</a>
-        <a>{{ w.Price }}</a>
+    <div class="cart-item">
+    <ul class="list-group">
+        <li *ngFor ="let w of wishlists | async" class="list-group-item">
+        <span>{{ w.name }} : </span>
+        <strong>{{ w.Price | currency }}</strong>
     </li>
     </ul>
-
+</div>
 
 </div>

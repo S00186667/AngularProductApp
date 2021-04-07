@@ -1,12 +1,21 @@
 
+<div class="d-flex flex-column flex-md-row p-3 px-md-4 mb-3 bg-body border-bottom shadow-sm">
+  <app-header></app-header>
+  <nav class="my-2 my-md-0 me-md-3">
+  </nav>
+ 
+</div>
+
+
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-body border-bottom shadow-sm">
-    <app-header></app-header>
     <nav class="my-2 my-md-0 me-md-3">
-      <a class="p-2 text-dark" [routerLink]= "['/shop']">All Products </a>
-      <a class="p-2 text-dark" [routerLink]= "['/youtube']">YouTube reviews </a>
-      <a class="p-2 text-dark" [routerLink]= "['/crud']">Update/Delete product </a>
-      <a class="p-2 text-dark" [routerLink]= "['/form']">Add new product </a>
+      <a class="product-nav" [routerLink]= "['/shop']">Shop</a>
+      <a class="product-nav" [routerLink]= "['/youtube']">Reviews </a>
+      <a class="product-nav" [routerLink]= "['/crud']">Update/Delete product </a>
+      <a class="product-nav" [routerLink]= "['/form']">New product </a>
+      <a class="product-nav" [routerLink]= "['/admin']">Admin Area</a>
+      <a class="topnav-btn btn btn-outline-dark" [routerLink]= "['/register']">Sign up</a>
+      <a class="topnav-btn btn btn-outline-dark"[routerLink]= "['/login']">Login</a>
+  
     </nav>
-    <a class="btn btn-primary" [routerLink]= "['/register']">Sign up</a>
-    <a class=" btn btn-outline-primary"[routerLink]= "['/login']">Login</a>
 </div>

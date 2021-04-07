@@ -1,4 +1,4 @@
-<p>register works!</p>
+<!--<p>register works!</p>
 <p>
     <a [routerLink]="['/login']">Login</a>
 </p>
@@ -8,4 +8,41 @@
     <input type="text" #emailSignup/>
     <input type="text" #passwordSignup/>
     <button (click) ="onSignup(emailSignup.value, passwordSignup.value)">Sign up</button>
+</div>-->
+
+
+<form [formGroup] = "registerForm">
+<div *ngIf="!isSignedIn">
+<section class="Form">
+    <div class="container">
+      
+        <div class="row">
+            <div class="col-lg-5">
+                <h4>Create new account</h4>
+            </div>
+            <div class="col-lg-7"></div>
+           
+            <form>
+                <div class="form-row">
+                    <div class="col-lg">
+                        <input type="text" #emailSignup class="form-control my-3 p-4" placeholder="Email-Address"/>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-lg">
+                        <input type="password" #passwordSignup class="form-control my-3 p-4" placeholder="******"/>
+                    </div>
+                </div>
+              
+                    <div class="col-lg-7">
+                        <button class="btn1 mt-3 mb-5" (click) ="onSignup(emailSignup.value, passwordSignup.value)">Sign up</button>
+                    </div>
+                
+                <p>Already have an account?  <a [routerLink]="['/login']">Login</a></p>
+            </form>
+        </div>
+ 
+    </div>
+</section>
 </div>
+</form>

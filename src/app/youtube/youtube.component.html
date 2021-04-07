@@ -1,10 +1,20 @@
 <div>
-    <h1>You tube channel search</h1>
+    <h1 class="channel_search">Channel Search</h1>
+    <div class="container">
+        <div class="search_wrap search_wrap_1">
+            <div class="search_box">
     <label for ="channelName">Channel Name: </label>
-    <input #channelName type="text" placeholder="youtube channel..." required>
+    <input #channelName type="text" class ="input" placeholder="Enter YouTube Channel" required>
 
-    <button (click)="getData()">get channels</button>
-    <ul *ngFor="let channel of channels">
+
+
+     <div class="btn btn_common">
+    <i class="fas fa-search" (click)="getData()"></i>
+</div>
+</div>
+</div>
+</div>
+    <ul *ngFor="let channel of channels" class="channel_search">
         <a target ="_blank" href="https://www.youtube.com/channel/{{channel.id.channelId}}">
         
         <img  class = "img-thumbnail" width ="200" height ="200" src="{{channel.snippet.thumbnails.medium.url}}"/>

@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   }
 
   logout(){
-    this.firebaseService.logout()
+    this.firebaseService.SignOut()
     this.isLogout.emit()
   }
 

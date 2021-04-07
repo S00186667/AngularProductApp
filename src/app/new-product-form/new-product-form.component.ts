@@ -55,12 +55,12 @@ export class NewProductFormComponent implements OnInit {
   
 
 
-  this.productForm = new FormGroup({
+  const productForm = new FormGroup({
     name: new FormControl([Validators.required, Validators.minLength(3)]), 
     isbn: new FormControl([Validators.required]), 
-    category: new FormControl([Validators.required]),
+    category: new FormControl([Validators.required, Validators.minLength(3)]),
     brand: new FormControl([Validators.required]), 
-    price: new FormControl([Validators.required]), 
+    price: new FormControl([Validators.required, Validators.min(1)]), 
     imageurl: new FormControl([Validators.required])
   })
 

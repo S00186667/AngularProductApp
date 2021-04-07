@@ -42,7 +42,8 @@ import { MatIconModule } from "@angular/material/icon";
 import { StoreModule } from '@ngrx/store';
 import { wishlistreducer } from 'src/app/reducers/wishlist.reducer';
 
-import {environment} from 'src/environments/environment' 
+import {environment} from 'src/environments/environment';
+import { AdminAreaComponent } from './admin-area/admin-area.component' 
 
 
 
@@ -71,6 +72,7 @@ import {environment} from 'src/environments/environment'
     NewProductFormComponent,
     WishlistComponent,
     NewproductlistComponent,
+    AdminAreaComponent,
 
    
     

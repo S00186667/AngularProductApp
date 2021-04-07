@@ -3,7 +3,7 @@
 
     <div class="card-body">
         <p class="card-text">
-            <strong>{{productItem.price | currency}}</strong>
+            <strong>{{productItem.name}}</strong>
             <i *ngIf="addedToWishList" class="fas fa-heart float-right" (click)="handleRemoveCart()"></i>
 
             <i *ngIf="!addedToWishList" class="far fa-heart float-right" (click)="addWishlist(productItem.name, productItem.price)"></i>
@@ -13,9 +13,9 @@
         <div class="btn-group">
           <button 
           type="button" 
-          class="btn btn-sm btn-primary product-btn"
-          (click) = "handleAddToCart()">Add To WishList</button>
-          <button type="button" class="btn btn-sm btn-outline-secondary product-btn">View Details</button>
+          class="btn btn-outline"
+         >{{productItem.price | currency}}</button>
+          <button type="button" class="btn btn-sm btn-outline-dark product-btn">View Details</button>
         </div>
       </div>
     </div>

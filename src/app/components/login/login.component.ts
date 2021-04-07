@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 import {FirebaseService} from 'src/app/services/firebase.service'
@@ -11,6 +12,8 @@ import {FirebaseService} from 'src/app/services/firebase.service'
 })
 export class LoginComponent implements OnInit {
 
+
+  loginForm: FormGroup; 
   isSignedIn =false
   constructor(public FirebaseService: FirebaseService){}
 
@@ -23,12 +26,18 @@ export class LoginComponent implements OnInit {
     else
     this.isSignedIn = false
 
+
+    const loginForm = new FormGroup({
+      email: new FormControl([Validators.required, Validators.minLength(3)]), 
+      password: new FormControl([Validators.required]), 
+    })
+
     
   }
 
   async onSignin(email:string, password:string){
 
-    await this.FirebaseService.signin(email, password)
+    await this.FirebaseService.SignIn(email, password)
     if (this.FirebaseService.isLoggedIn)
      this.isSignedIn = true
 
