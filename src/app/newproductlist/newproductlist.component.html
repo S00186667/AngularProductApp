@@ -1,21 +1,22 @@
 <div class="container-fluid">
 
-    <button (click)="openAddProduct()" *ngIf="!showProductForm"
-    class="btn btn-lg btn-outline-primary" >Add Product</button>
+  <h1 class="productHeader">Click here to add a new product</h1>
+
+    <button class="btn1 mt-3 mb-5" (click)="openAddProduct()" *ngIf="!showProductForm"
+    >AddProduct</button>
     
     
     <app-product-form *ngIf="showProductForm" 
-    (productFormClose)="productFormClose($event)" [book]="currentProduct"></app-product-form>  
+    [book]="currentProduct"></app-product-form>  
     
       <p>
         <ngb-alert *ngIf="message" [dismissible]="true">
           <strong>Warning!</strong> {{message}}
         </ngb-alert>
       </p>
-     
+     <h1 class="productHeader">Current Products</h1>
         <app-product-row class="card" *ngFor="let p of productList"
         [product]="p"
-        (click)='clicked(p)'
-        [class.bg-info]="isSelected(p)" [class.text-white]="isSelected(p)"></app-product-row>
+        ></app-product-row>
 
       </div>

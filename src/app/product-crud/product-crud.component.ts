@@ -70,4 +70,8 @@ export class ProductCrudComponent implements OnInit {
       this.router.navigate(['update', _id]);
     }
 
+    detailproduct(_id: string){
+      this.router.navigate(['detail', _id]); 
+    }
+
 }

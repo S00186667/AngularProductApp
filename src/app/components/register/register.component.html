@@ -11,7 +11,7 @@
 </div>-->
 
 
-<form [formGroup] = "registerForm">
+
 <div *ngIf="!isSignedIn">
 <section class="Form">
     <div class="container">
@@ -25,12 +25,12 @@
             <form>
                 <div class="form-row">
                     <div class="col-lg">
-                        <input type="text" #emailSignup class="form-control my-3 p-4" placeholder="Email-Address"/>
+                        <input Formtype="text" #emailSignup class="form-control my-3 p-4" placeholder="Email-Address"/>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col-lg">
-                        <input type="password" #passwordSignup class="form-control my-3 p-4" placeholder="******"/>
+                        <input  type="password" #passwordSignup class="form-control my-3 p-4" placeholder="******"/>
                     </div>
                 </div>
               
@@ -45,4 +45,3 @@
     </div>
 </section>
 </div>
-</form>

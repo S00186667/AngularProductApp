@@ -15,6 +15,7 @@ import { NewproductlistComponent } from './newproductlist/newproductlist.compone
 
 import {AngularFireAuthGuard, canActivate, redirectUnauthorizedTo} from '@angular/fire/auth-guard'
 import { AdminAreaComponent } from './admin-area/admin-area.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']); 
@@ -24,13 +25,12 @@ const routes: Routes =[
   {path: 'login', component: LoginComponent, },
   {path: 'register', component: RegisterComponent},
   {path: 'shop', 
-  component: ShoppingListComponent, 
-  canActivate: [AngularFireAuthGuard], data: {authGuardPipe: redirectUnauthorizedToLogin}
-}, 
+  component: ShoppingListComponent}, 
   {path: 'youtube', component: YoutubeComponent},
-  {path: 'form', component: NewproductlistComponent},
-  {path: 'crud', component: ProductCrudComponent}, 
-  {path: 'admin', component: AdminAreaComponent}, 
+  {path: 'detail/:id', component: ProductDetailsComponent},
+  {path: 'form', component: NewproductlistComponent, canActivate: [AngularFireAuthGuard], data: {authGuardPipe: redirectUnauthorizedToLogin}},
+  {path: 'crud', component: ProductCrudComponent, canActivate: [AngularFireAuthGuard], data: {authGuardPipe: redirectUnauthorizedToLogin}}, 
+  {path: 'admin', component: AdminAreaComponent, canActivate: [AngularFireAuthGuard], data: {authGuardPipe: redirectUnauthorizedToLogin}}, 
   {path: 'update/:id', component: UpdateProductComponent},
   {path: '**', component: PageNotFoundComponent}
 ]

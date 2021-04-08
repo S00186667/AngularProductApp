@@ -147,3 +147,65 @@ img{
     color: black;
     
 }
+.btn3
+{
+    border-radius: 4px;
+    color: white;
+    height: 50px;
+    width: 100px;
+    background-color: #708bd2;
+    font-weight: bold;
+}
+.signinfont{
+    padding-top: 30px;
+}
+.adminbutton1{
+    border-radius: 4px;
+    color: white;
+    height: 50px;
+    width: 100px;
+    background-color: black;
+    font-weight: bold;
+
+}
+.adminbutton1:hover{
+    background:white;
+    border: 1px solid; 
+    color: black;
+
+}
+.adminbutton2{
+    border-radius: 4px;
+    color: white;
+    height: 50px;
+    width: 100px;
+    background-color: black;
+    font-weight: bold;
+    margin-left: 20px;
+
+}
+.adminbutton2:hover{
+    background:white;
+    border: 1px solid; 
+    color: black;
+
+}
+
+.adminsearch{
+    width: 500px;
+    margin: 30px auto;
+
+}
+.adminheader{
+    font-family: monospace;
+}
+
+.side-by-side{
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: nowrap; 
+}
+
+.productHeader{
+    font-family: monospace;
+}

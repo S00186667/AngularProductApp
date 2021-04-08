@@ -9,6 +9,7 @@ import { WishlistService } from '../wishlist.service';
 
 
 import * as WishlistActions from 'src/app/actions/wishlist.actions'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-item',
@@ -21,12 +22,16 @@ export class ProductItemComponent implements OnInit {
 
   @Input() addedToWishList: boolean; 
 
+  _id:string; 
+
+  products: IProduct[];  
+
 
   clearmsgs = ""; 
 
   
   constructor(private msg: MessengerService,
-    private wishlistService: WishlistService, private store: Store<AppState> ) { }
+    private wishlistService: WishlistService, private store: Store<AppState>, private router: Router ) { }
 
   ngOnInit(): void {
   }
@@ -66,5 +71,9 @@ export class ProductItemComponent implements OnInit {
     })
 
   }*/
+
+  detailproduct(_id: string){
+    this.router.navigate(['detail', _id]); 
+  }
 
 }

@@ -1,6 +1,6 @@
 <div class="panel panel primary">
     <div class="panel-heading">
-        <h2>Product List</h2>
+        <h1 class="productHeader">Product List</h1>
     </div>
 
     <div class="panel-body">
@@ -20,7 +20,7 @@
                         Price
                     </th>
                     <th>
-                        id
+                        ID
                     </th>
                     
                 </tr>
@@ -34,10 +34,14 @@
                     <td>{{product.brand}}</td>
                     <td>{{product.price}}</td>
                     <td>{{product.isbn}}</td>
-                    <td><button (click)="deleteProduct(product._id, product)" class="btn btn-danger">Delete</button>
+
+                   
+                    <td class="side-by-side"> 
+                        <button (click)="deleteProduct(product._id, product)" class="btn btn-danger">Delete</button>
                        <button (click)="updateProduct(product._id, product)" class="btn btn-info" style="margin-left: 10px">Update</button>
-                        <button (click)="detailproduct(product.id)" class="btn btn-info" style="margin-left: 10px">Details</button> 
+                        <button (click)="detailproduct(product._id, product)" class="btn btn-info" style="margin-left: 10px">Details</button> 
                     </td>
+
                 </tr>
             </tbody>
         </table>

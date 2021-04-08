@@ -84,7 +84,7 @@ import { AdminAreaComponent } from './admin-area/admin-area.component'
     ReactiveFormsModule, 
     StoreModule.forRoot({WishList: wishlistreducer}),
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebase)
+   AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [FirebaseService],
   bootstrap: [AppComponent]

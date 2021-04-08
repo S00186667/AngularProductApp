@@ -4,8 +4,8 @@ import { wishlist } from 'model/wishlist.model'
 import * as WishlistActions from 'src/app/actions/wishlist.actions'
 
 const initialState: wishlist ={
-    name: 'insital wishlist',
-    Price: '400'
+    name: '',
+    Price: ''
 }
 
 export function wishlistreducer(state : wishlist[] = [initialState], action: WishlistActions.Actions){
